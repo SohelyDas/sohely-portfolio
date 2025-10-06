@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sohely — Portfolio</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter';
+            background: url("image/back-ground.png") ;
+            background-size: cover;
+            color: aliceblue;
+}
+        
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #site-content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Floating particles */
+        .particle {
+            position: fixed;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            pointer-events: none;
+            z-index: 1;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) translateX(0) scale(0.5); }
+            100% { transform: translateY(-10vh) translateX(50px) scale(1); }
+        }
+    </style>
+</head>
+<body>
+
+<div id="site-content">
+
+    <header class="flex items-center justify-center py-12 px-6">
+        <div class="max-w-4xl text-center">
+            <h1 class="text-5xl md:text-6xl font-bold">Sohely</h1>
+            <p class="mt-4 text-xl">Painter 🎨• Theatre Enthusiast 🎭• Storyteller ✍</p>
+            <div class="mt-6">
+                <a href="#choose" class="px-6 py-3 rounded-lg bg-[#E6B89C] text-white">View Art Work</a>
+                <a href="#contact" class="ml-4 px-6 py-3 rounded-lg border border-[#2B6E4A]">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="max-w-4xl mx-auto p-6">
+        <div class="flex flex-col md:flex-row items-center gap-6">
+            <img src="image/photo.jpg" alt="Sohely portrait" 
+                 class="w-64 h-80 rounded-full object-cover border-8 border-[#E6B89C]" />
+            
+            <div>
+                <h2 class="text-3xl">About Me</h2>
+                <p class="mt-5 text-lg leading-relaxed">
+                    Hi, I’m <b>Sohely</b>🌸 a curious soul with an endless love for painting, theatre and storytelling, basically anything that lets my imagination run wild! This personal portfolio is my little corner of the internet where I share my colorful creations, dramatic adventures, and tales that might make you laugh, think and feel. So Come, peek inside and join me on this creative rollercoaster!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="choose" class="max-w-4xl mx-auto py-12 px-6 text-center">
+        <h2 class="text-3xl font-semibold mb-8">What do you want to explore?</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <button class="category-btn px-6 py-12 bg-[#f24025] rounded-lg hover:bg-[#ed7f6f] transition" data-category="painting">
+                Paintings 🎨
+            </button>
+            <button class="category-btn px-6 py-12 bg-[#2B6E4A] rounded-lg hover:bg-[#1f4c35] text-white transition" data-category="theatre">
+                Theatre 🎭
+            </button>
+            <button class="category-btn px-6 py-12 bg-[#1e293b] rounded-lg hover:bg-[#374151] text-white transition" data-category="story">
+                Story Writing ✍
+            </button>
+        </div>
+    </section>
+    
+    <section id="content" class="max-w-6xl mx-auto py-12 px-6 hidden">
+        <h2 id="contentTitle" class="text-3xl font-semibold text-center mb-8"></h2>
+        <div id="contentGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+    </section>
+
+    <section id="contact" class="max-w-4xl mx-auto py-12 px-6">
+        <h2 class="text-3xl font-semibold text-center mb-6">Want to contact!</h2>
+        <form action="https://formspree.io/f/mjkaopek" method="POST" class="grid gap-4">
+            <input type="text" name="name" placeholder="Your Name" required class="p-3 rounded border border-gray-600 bg-[#1e293b] text-[#F7F4F1] focus:outline-none focus:ring-2 focus:ring-[#E6B89C]" />
+            <input type="email" name="_replyto" placeholder="Your Email" required class="p-3 rounded border border-gray-600 bg-[#1e293b] text-[#F7F4F1] focus:outline-none focus:ring-2 focus:ring-[#E6B89C]" />
+            <textarea name="message" rows="5" placeholder="Your Message / Commission details" required class="p-3 rounded border border-gray-600 bg-[#1e293b] text-[#F7F4F1] focus:outline-none focus:ring-2 focus:ring-[#E6B89C]"></textarea>
+            <button type="submit" class="px-6 py-3 bg-[#2B6E4A] text-white rounded-lg hover:bg-[#1f4c35] transition">Send Message</button>
+        </form>
+        <p class="mt-4 text-center text-sm text-gray-400">
+            Or reach me directly at 
+            <a href="mailto:sohelydas1996@gmail.com" class="text-[#d5a78b] underline">sohelydas1996@gmail.com</a>
+        </p>
+    </section>
+
+</div>
+<script>
+    const numParticles = 30;
+    for(let i=0; i<numParticles; i++){
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        particle.style.width = `${Math.random()*8 + 2}px`;
+        particle.style.height = `${Math.random()*8 + 2}px`;
+        particle.style.left = `${Math.random()*100}vw`;
+        particle.style.animationDuration = `${10 + Math.random()*15}s`;
+        particle.style.animationDelay = `${Math.random()*10}s`;
+        document.body.appendChild(particle);
+    }
+</script>
+
+</body>
+</html>
